@@ -14,27 +14,6 @@ using namespace std;
 
 namespace exemplar
 {
-    template <class T> void mergesort(vector<T>& v)
-    {
-        DBG("\n- Start Mergesort -\n");
-        exemplar::printVector(v);
-        mergesort(v, 0, (int)v.size() - 1);
-        exemplar::printVector(v);
-        DBG("- End Mergesort -\n");
-    }
-
-    template <class T> void mergesort(vector<T>& v, int start, int end)
-    {
-        if (start >= end) {
-            return;
-        }
-
-        int mid = start + (end - start) / 2;
-        mergesort(v, start, mid);
-        mergesort(v, mid + 1, end);
-        combineHalves(v, start, end);
-    }
-
     template <class T> void combineHalves(vector<T>& v, int start, int end)
     {
         vector<T> combined;
@@ -62,5 +41,26 @@ namespace exemplar
         for (int i = 0; i < combined.size(); ++i) {
             v[start + i] = combined[i];
         }
+    }
+
+    template <class T> void mergesort(vector<T>& v, int start, int end)
+    {
+        if (start >= end) {
+            return;
+        }
+
+        int mid = start + (end - start) / 2;
+        mergesort(v, start, mid);
+        mergesort(v, mid + 1, end);
+        combineHalves(v, start, end);
+    }
+
+    template <class T> void mergesort(vector<T>& v)
+    {
+        DBG("\n- Start Mergesort -\n");
+        exemplar::printVector(v);
+        mergesort(v, 0, (int)v.size() - 1);
+        exemplar::printVector(v);
+        DBG("- End Mergesort -\n");
     }
 }

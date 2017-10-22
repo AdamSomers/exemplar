@@ -22,24 +22,11 @@ using namespace std;
 
 namespace exemplar
 {
-    template <class T> void quicksort(vector<T>& v)
+    template <class T> void swap(vector<T>& v, int a, int b)
     {
-        DBG("\n- Start Quicksort -\n");
-        exemplar::printVector(v);
-        quicksort(v, 0, (int)v.size() - 1, (int)v.size() / 2);
-        exemplar::printVector(v);
-        DBG("- End Quicksort -\n");
-    }
-
-    template <class T> void quicksort(vector<T>& v, int start, int end, int pivot)
-    {
-        if (start >= end) {
-            return;
-        }
-
-        int partitionIndex = partition(v, start, end, pivot);
-        quicksort(v, start, partitionIndex - 1, (start + partitionIndex - 1) / 2);
-        quicksort(v, partitionIndex, end, (partitionIndex + end) / 2);
+        T temp = v[a];
+        v[a] = v[b];
+        v[b] = temp;
     }
 
     template <class T> int partition(vector<T>& v, int start, int end, int pivot)
@@ -63,10 +50,23 @@ namespace exemplar
         return left;
     }
 
-    template <class T> void swap(vector<T>& v, int a, int b)
+    template <class T> void quicksort(vector<T>& v, int start, int end, int pivot)
     {
-        T temp = v[a];
-        v[a] = v[b];
-        v[b] = temp;
+        if (start >= end) {
+            return;
+        }
+
+        int partitionIndex = partition(v, start, end, pivot);
+        quicksort(v, start, partitionIndex - 1, (start + partitionIndex - 1) / 2);
+        quicksort(v, partitionIndex, end, (partitionIndex + end) / 2);
+    }
+
+    template <class T> void quicksort(vector<T>& v)
+    {
+        DBG("\n- Start Quicksort -\n");
+        exemplar::printVector(v);
+        quicksort(v, 0, (int)v.size() - 1, (int)v.size() / 2);
+        exemplar::printVector(v);
+        DBG("- End Quicksort -\n");
     }
 }

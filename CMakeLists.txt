@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.7)
 project(exemplar)
 
+set (CMAKE_CXX_STANDARD 11)
+
 # force static runtime libraries for msvc builds
 if(MSVC)
 set(variables 
