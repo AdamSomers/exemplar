@@ -1,12 +1,15 @@
 #pragma once
 
-#include <string>
 #include <functional>
+#include <vector>
 
 using namespace std;
 
 // HashMap
 // Basic hash map supporting anything you can hash with std::hash
+// Meant as an example, not for production use. Does not resize.
+// Complexity: set & get - O(1) best case (evenly distributed hashes)
+// O(N) worst case (many hash collisions)
 
 namespace exemplar
 {
@@ -72,4 +75,6 @@ namespace exemplar
             return hashGen(key);
         }
     };
+
+    void hashmap_example();
 }

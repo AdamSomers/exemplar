@@ -1,12 +1,14 @@
 #pragma once
 
-#include "util.h"
+#include <vector>
 
 using namespace std;
 
 // BST
 // A simple, unbalanced binary search tree.
-// Complexity
+// Complexity:
+// Insert & find O(logN) best case (evenly distrivuted range of inserted values)
+// O(N), worst case (presorted values inserted)
 
 namespace exemplar
 {
@@ -101,4 +103,6 @@ namespace exemplar
         BSTNode<T>* left = nullptr;
         BSTNode<T>* right = nullptr;
     };
+
+    void bst_example();
 }

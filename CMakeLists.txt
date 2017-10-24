@@ -26,6 +26,8 @@ include_directories(src)
 
 add_library(exemplarlib ${sources})
 
+target_link_libraries(exemplarapp exemplarlib)
+
 if (WIN32)
     target_compile_definitions(exemplarapp PUBLIC WINDOWS=1)
     target_compile_definitions(exemplarlib PUBLIC WINDOWS=1)

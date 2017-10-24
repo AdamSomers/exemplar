@@ -1,9 +1,5 @@
 #pragma once
 
-#include "util.h"
-
-using namespace std;
-
 // MinHeap
 // The smallest element will always be the root.
 // Allows for O(1) retrieval of smallest element.
@@ -110,4 +106,6 @@ namespace exemplar
         int capacity = 0;
         int size = 0;
     };
+
+    void minheap_example();
 }

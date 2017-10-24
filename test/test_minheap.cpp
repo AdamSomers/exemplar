@@ -2,6 +2,8 @@
 #include "minheap.h"
 
 #include <algorithm>
+#include <vector>
+using namespace std;
 
 TEST(MinHeap, getMinTest1)
 {

@@ -2,9 +2,6 @@
 
 #include <vector>
 
-#include "defs.h"
-#include "util.h"
-
 using namespace std;
 
 // Mergesort
@@ -57,10 +54,8 @@ namespace exemplar
 
     template <class T> void mergesort(vector<T>& v)
     {
-        DBG("\n- Start Mergesort -\n");
-        exemplar::printVector(v);
         mergesort(v, 0, (int)v.size() - 1);
-        exemplar::printVector(v);
-        DBG("- End Mergesort -\n");
     }
+
+    void mergesort_example();
 }

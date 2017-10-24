@@ -2,8 +2,6 @@
 
 #include <vector>
 
-#include "util.h"
-
 using namespace std;
 
 // Quicksort
@@ -18,7 +16,7 @@ using namespace std;
 // Repeat until pointers cross.
 // Return the index of the left pointer.
 //
-// Complixity: O(n*log(n)) average case. O(n^2) worst case.
+// Complixity: O(n*log(n)) average case. O(n^2) worst case (already sorted input array).
 
 namespace exemplar
 {
@@ -63,10 +61,8 @@ namespace exemplar
 
     template <class T> void quicksort(vector<T>& v)
     {
-        DBG("\n- Start Quicksort -\n");
-        exemplar::printVector(v);
         quicksort(v, 0, (int)v.size() - 1, (int)v.size() / 2);
-        exemplar::printVector(v);
-        DBG("- End Quicksort -\n");
     }
+
+    void quicksort_example();
 }
